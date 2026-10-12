@@ -1,0 +1,39 @@
+name: CI
+
+on:
+  pull_request:
+  push:
+    branches: [main]
+
+jobs:
+  verify:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-python@v5
+        with:
+          python-version-file: ".python-version"
+
+      # Quality gates do not depend on the agent: they run here, with the
+      # same commands used locally.
+      - name: Check the environment
+        run: python tasks.py setup
+
+      - name: Tests
+        run: python tasks.py test
+
+      - name: Acceptance check for INC-0142
+        run: python tasks.py acceptance
+
+      - name: Full load on a clean warehouse
+        run: python tasks.py run-all
+
+      - name: Occupancy report, for the log
+        run: python tasks.py occupancy
+
+      - name: Reconcile against the contract
+        run: python tasks.py reconcile
+
+      # reconcile exits non-zero when the declared grain does not hold, so
+      # the job fails without any extra step.

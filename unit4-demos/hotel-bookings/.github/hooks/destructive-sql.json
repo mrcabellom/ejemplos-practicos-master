@@ -1,0 +1,14 @@
+{
+  "version": 1,
+  "hooks": {
+    "preToolUse": [
+      {
+        "type": "command",
+        "bash": "python .github/hooks/block_destructive_sql.py",
+        "powershell": "python .github/hooks/block_destructive_sql.py",
+        "cwd": ".",
+        "timeoutSec": 10
+      }
+    ]
+  }
+}

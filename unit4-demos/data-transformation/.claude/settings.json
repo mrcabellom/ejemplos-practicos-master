@@ -1,0 +1,47 @@
+{
+  "permissions": {
+    "allow": [
+      "Read",
+      "Grep",
+      "Glob",
+      "Bash(python tasks.py *)",
+      "PowerShell(python tasks.py *)",
+      "Bash(git status)",
+      "Bash(git diff *)",
+      "Bash(git log *)",
+      "mcp__bike-data"
+    ],
+    "deny": [
+      "Read(./playbook/**)",
+      "Read(./deliveries/**)",
+      "Read(./.env)",
+      "Read(**/.env)",
+      "Bash(python tasks.py deliver *)",
+      "PowerShell(python tasks.py deliver *)",
+      "Bash(rm -rf *)"
+    ]
+  },
+  "enabledMcpjsonServers": ["bike-data"],
+  "hooks": {
+    "PreToolUse": [
+      {
+        "matcher": "Write|Edit|MultiEdit|NotebookEdit",
+        "hooks": [
+          {
+            "type": "command",
+            "command": "python \"$CLAUDE_PROJECT_DIR/.claude/hooks/protect_inbox.py\""
+          }
+        ]
+      },
+      {
+        "matcher": "Bash|PowerShell",
+        "hooks": [
+          {
+            "type": "command",
+            "command": "python \"$CLAUDE_PROJECT_DIR/.claude/hooks/block_delete.py\""
+          }
+        ]
+      }
+    ]
+  }
+}

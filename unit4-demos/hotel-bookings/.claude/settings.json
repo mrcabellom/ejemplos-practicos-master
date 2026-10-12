@@ -1,0 +1,64 @@
+{
+  "permissions": {
+    "allow": [
+      "Bash(python tasks.py setup)",
+      "Bash(python tasks.py test)",
+      "Bash(python tasks.py occupancy)",
+      "Bash(python tasks.py reconcile)",
+      "Bash(python tasks.py acceptance)",
+      "Bash(python tasks.py check)",
+      "Bash(python tasks.py mcp-check)",
+      "PowerShell(python tasks.py setup)",
+      "PowerShell(python tasks.py test)",
+      "PowerShell(python tasks.py occupancy)",
+      "PowerShell(python tasks.py reconcile)",
+      "PowerShell(python tasks.py acceptance)",
+      "PowerShell(python tasks.py check)",
+      "PowerShell(python tasks.py mcp-check)",
+      "Bash(git status)",
+      "Bash(git diff *)",
+      "Bash(git log *)",
+      "mcp__bookings-warehouse"
+    ],
+    "ask": [
+      "Bash(python tasks.py run *)",
+      "Bash(python tasks.py run-all)",
+      "Bash(python tasks.py reset)",
+      "PowerShell(python tasks.py run *)",
+      "PowerShell(python tasks.py run-all)",
+      "PowerShell(python tasks.py reset)"
+    ],
+    "deny": [
+      "Read(./.env)",
+      "Read(./**/.env)",
+      "Read(./playbook/**)",
+      "Bash(sqlite3 *)",
+      "PowerShell(sqlite3 *)"
+    ]
+  },
+  "enabledMcpjsonServers": [
+    "bookings-warehouse"
+  ],
+  "hooks": {
+    "PreToolUse": [
+      {
+        "matcher": "Write|Edit|MultiEdit|NotebookEdit",
+        "hooks": [
+          {
+            "type": "command",
+            "command": "python \"$CLAUDE_PROJECT_DIR/.claude/hooks/protect_source.py\""
+          }
+        ]
+      },
+      {
+        "matcher": "Bash|PowerShell",
+        "hooks": [
+          {
+            "type": "command",
+            "command": "python \"$CLAUDE_PROJECT_DIR/.claude/hooks/block_destructive_sql.py\""
+          }
+        ]
+      }
+    ]
+  }
+}

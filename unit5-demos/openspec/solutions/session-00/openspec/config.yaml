@@ -1,0 +1,61 @@
+schema: spec-driven
+
+# Context that OpenSpec injects into EVERY instruction the AI receives.
+# Think of it as onboarding a new team member: short, concrete and stable.
+context: |
+  Language: es
+  All artifacts must be written in es.
+  Keep OpenSpec structural headings and SHALL/MUST keywords in English.
+
+  Empresa: Mercaluz, cadena española de supermercados (120 tiendas y venta online).
+  Equipo: Data Platform (6 personas). Partes interesadas: Finanzas, BI (Power BI), DPO/Legal, Operaciones.
+  Proyecto: pipeline diario de pedidos con arquitectura medallion, que se construye paso a paso.
+    landing (CSV diarios en data/landing/orders/YYYY-MM-DD.csv)
+    -> bronze (copia literal, todo VARCHAR + _source_file, _ingested_at)
+    -> silver (tipado y limpio)
+    -> gold (agregados de negocio que consume Power BI)
+    -> exports (ficheros para otros equipos)
+  Stack local: Python 3.12, DuckDB, uv, pytest y rich (salida por consola). En producción: Databricks + Airflow.
+  Estructura del código:
+    - Paquete mercaluz/ con config.py (rutas y conexión) y un subpaquete por etapa: ingestion/, transform/, exports/.
+    - Warehouse DuckDB en warehouse/mercaluz.duckdb, con los schemas bronze, silver y gold.
+    - Punto de entrada run_pipeline.py con --date YYYY-MM-DD y --all; muestra una línea por paso con rich,
+      por ejemplo "[bronze] 2026-10-01: 10 rows loaded".
+    - Tests con pytest en tests/, sobre una copia de los ficheros de landing y un warehouse temporal.
+    - Código, identificadores y mensajes en inglés.
+  Convenciones de datos:
+    - Tablas <capa>.<entidad_snake_case>; columnas técnicas con prefijo "_".
+    - Importes DECIMAL(12,2) en EUR; timestamps en UTC sin zona horaria.
+    - Fecha de negocio = order_date (YYYY-MM-DD).
+  Datos personales (RGPD): customer_email es dato personal.
+
+# Per-artifact rules: appended to the instructions for each artifact type.
+rules:
+  proposal:
+    - Enumera las tablas/columnas y los consumidores downstream (BI, Finanzas, exports) afectados
+    - Marca como **BREAKING** cualquier cambio de esquema en gold o en exports
+  specs:
+    - Los escenarios usan datos concretos (fechas, pedidos, store_id, importes) para poder convertirse en tests
+    - Especifica el comportamiento ante datos inválidos y ficheros ausentes
+    - No nombres funciones, módulos ni librerías de Python en las specs
+    - Pon a requisitos y escenarios nombres neutros que sigan siendo válidos si el comportamiento cambia
+    - Incluye solo los requisitos que pide la propuesta, uno por comportamiento solicitado y con sus detalles (columnas, tipos, formatos) dentro del mismo requisito; no añadas requisitos que no se hayan pedido
+  design:
+    - Si el cambio afecta a las cargas, explica idempotencia y rollback
+    - Compara al menos dos alternativas en cada decisión relevante
+  tasks:
+    - Cada tarea indica cómo verificarla (test de pytest o comando uv run)
+    - Usa los ficheros de data/landing/orders como datos de prueba
+    - Incluye los tests en cada grupo de tareas, no en un grupo final
+
+# Guidance for the apply/archive operations (optional)
+operations:
+  apply:
+    guidance:
+      - Implementa solo lo que piden las specs; no añadas validaciones ni comportamientos que no estén especificados
+      - Ejecuta uv run pytest al terminar cada grupo de tareas y no marques la tarea si falla
+      - En SQL, pasa los valores como parámetros (?) y nunca con f-strings; los nombres de tablas y columnas solo pueden salir de constantes del código
+  archive:
+    guidance:
+      - Sincroniza siempre las specs delta con las specs principales al archivar (nunca archives sin sincronizar)
+      - Antes de archivar, resume qué tablas o ficheros cambiaron de esquema

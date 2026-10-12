@@ -1,0 +1,39 @@
+name: openspec
+
+on:
+  pull_request:
+    paths:
+      - "openspec/**"
+      - "mercaluz/**"
+      - "tests/**"
+
+jobs:
+  specs:
+    runs-on: ubuntu-latest
+    env:
+      OPENSPEC_TELEMETRY: "0"
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-node@v4
+        with:
+          node-version: "22"
+
+      - name: Install OpenSpec (pinned version)
+        run: npm install -g @fission-ai/openspec@1.14.1
+
+      - name: Validate specs and active changes
+        run: openspec validate --all --strict --no-interactive
+
+      - name: Archived changes have all tasks completed
+        run: openspec validate --archived --no-interactive
+
+  tests:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: astral-sh/setup-uv@v5
+      - run: uv sync
+      - run: uv run pytest
+        env:
+          MERCALUZ_PII_KEY: ${{ secrets.MERCALUZ_PII_KEY_TEST }}

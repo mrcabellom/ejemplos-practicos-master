@@ -1,0 +1,11 @@
+trip_id,bike_id,start_time,end_time,start_station,end_station,user_type
+T0301,B101,2026-10-26T08:00,2026-10-26T08:16,Puerta del Sol,Atocha,member
+T0302,B106,2026-10-26T09:15,2026-10-26T09:37,Retiro,Moncloa,casual
+T0303,B102,2026-10-27T07:40,2026-10-27T07:52,Chamberí,Puerta del Sol,member
+T0304,B107,2026-10-27T12:20,2026-10-27T12:53,Atocha,Lavapiés,casual
+T0305,B103,2026-10-28T18:10,2026-10-28T18:28,Puerta del Sol,Retiro,member
+T0306,B108,2026-10-29T08:50,2026-10-29T09:15,Moncloa,Chamberí,member
+T0307,B104,2026-10-30T14:30,2026-10-30T14:43,Lavapiés,Atocha,casual
+T0308,B109,2026-10-31T10:05,2026-10-31T10:46,Retiro,Puerta del Sol,casual
+T0309,B105,2026-11-01T11:40,2026-11-01T12:00,Atocha,Moncloa,member
+T0310,B110,2026-11-01T17:55,2026-11-01T18:10,Chamberí,Retiro,member

@@ -1,0 +1,50 @@
+[
+  {
+    "booking_id": "B-3008",
+    "hotel_id": "MAD",
+    "channel": "direct",
+    "check_in": "2026-03-02",
+    "check_out": "2026-03-05",
+    "rooms": 3,
+    "status": "cancelled",
+    "total_amount": 810.0,
+    "currency": "EUR",
+    "updated_at": "2026-03-03T07:55:00Z"
+  },
+  {
+    "booking_id": "B-3010",
+    "hotel_id": "MLG",
+    "channel": "expedia",
+    "check_in": "2026-03-04",
+    "check_out": "2026-03-06",
+    "rooms": 2,
+    "status": "confirmed",
+    "total_amount": 330.0,
+    "currency": "EUR",
+    "updated_at": "2026-03-02T23:50:00Z"
+  },
+  {
+    "booking_id": "B-3011",
+    "hotel_id": "BCN",
+    "channel": "booking",
+    "check_in": "2026-03-03",
+    "check_out": "2026-03-05",
+    "rooms": 1,
+    "status": "confirmed",
+    "total_amount": 280.0,
+    "currency": "USD",
+    "updated_at": "2026-03-03T09:05:00Z"
+  },
+  {
+    "booking_id": "B-3012",
+    "hotel_id": "BCN",
+    "channel": "direct",
+    "check_in": "2026-03-03",
+    "check_out": "2026-03-04",
+    "rooms": 2,
+    "status": "confirmed",
+    "total_amount": 250.0,
+    "currency": "EUR",
+    "updated_at": "2026-03-03T09:30:00Z"
+  }
+]

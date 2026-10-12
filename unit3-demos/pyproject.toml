@@ -1,0 +1,14 @@
+[project]
+name = "unit3-demos"
+version = "0.1.0"
+description = "Demos de apoyo a la Unidad 3: desarrollo de software asistido por IA"
+requires-python = ">=3.12"
+dependencies = [
+    "pytest>=8",
+    "rich>=13",
+]
+
+[tool.uv]
+package = false
+# OneDrive files do not support hardlinks, so copy packages into .venv
+link-mode = "copy"

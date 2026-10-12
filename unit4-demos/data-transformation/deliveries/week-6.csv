@@ -1,0 +1,9 @@
+trip_id,bike_id,start_time,end_time,start_station,end_station,rider_type
+T5001,B111,2026-11-09T08:05,2026-11-09T08:19,Atocha,Retiro,member
+T5002,B112,2026-11-09T09:30,2026-11-09T09:51,Puerta del Sol,Moncloa,casual
+T5003,B113,2026-11-10T07:50,2026-11-10T08:02,Chamberí,Atocha,member
+T5004,B114,2026-11-11T13:15,2026-11-11T13:45,Retiro,Lavapiés,casual
+T5005,B115,2026-11-12T18:40,2026-11-12T18:57,Moncloa,Puerta del Sol,member
+T5006,B116,2026-11-13T08:20,2026-11-13T08:29,Lavapiés,Chamberí,member
+T5007,B117,2026-11-14T11:00,2026-11-14T11:36,Atocha,Retiro,casual
+T5008,B118,2026-11-15T17:10,2026-11-15T17:29,Puerta del Sol,Atocha,member

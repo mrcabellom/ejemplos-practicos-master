@@ -1,0 +1,16 @@
+[project]
+name = "mercaluz-data-platform"
+version = "0.1.0"
+description = "Mercaluz data platform: orders ingestion, bronze/silver/gold layers and exports"
+requires-python = ">=3.10"
+dependencies = ["duckdb>=1.0", "rich>=13.0"]
+
+[dependency-groups]
+dev = ["pytest>=8.0"]
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]
+pythonpath = ["."]
+
+[tool.uv]
+package = false

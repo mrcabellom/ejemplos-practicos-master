@@ -1,0 +1,9 @@
+[project]
+name = "pedalia-bikes"
+version = "0.1.0"
+description = "Transformación de las entregas de viajes de Pedalia en el informe de uso diario"
+requires-python = ">=3.9"
+dependencies = []
+
+[tool.uv]
+package = false

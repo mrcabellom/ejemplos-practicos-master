@@ -1,0 +1,10 @@
+[project]
+name = "function-calling"
+version = "0.1.0"
+description = "Function calling example with Claude Sonnet 5.5"
+requires-python = ">=3.12"
+dependencies = [
+    "anthropic>=0.116.0",
+    "python-dotenv>=1.0.0",
+    "rich>=13.0.0",
+]

@@ -1,0 +1,13 @@
+{
+  "mcpServers": {
+    "bookings-warehouse": {
+      "command": "python",
+      "args": [
+        "mcp_server/server.py"
+      ],
+      "env": {
+        "BOOKINGS_DB": "warehouse.db"
+      }
+    }
+  }
+}

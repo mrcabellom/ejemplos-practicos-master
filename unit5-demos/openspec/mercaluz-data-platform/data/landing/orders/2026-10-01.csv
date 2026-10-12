@@ -1,0 +1,11 @@
+order_id,order_ts,store_id,customer_email,product_sku,category,quantity,unit_price,status
+O-1001,2026-10-01T09:12:00,MAD-001,ana.garcia@example.com,SKU-LECHE-1L,alimentacion_basica,6,0.95,completed
+O-1001,2026-10-01T09:12:00,MAD-001,ana.garcia@example.com,SKU-ACEITE-1L,alimentacion,1,8.49,completed
+O-1002,2026-10-01T10:05:00,MAD-001,luis.perez@example.com,SKU-DETERG-3L,drogueria,1,11.90,completed
+O-1003,2026-10-01T11:30:00,BCN-014,marta.soler@example.com,SKU-PAN-BARRA,alimentacion_basica,2,0.80,completed
+O-1003,2026-10-01T11:30:00,BCN-014,marta.soler@example.com,SKU-PAN-BARRA,alimentacion_basica,2,0.80,completed
+O-1004,2026-10-01T12:45:00,BCN-014,jordi.vila@example.com,SKU-VINO-75CL,bebidas,3,6.50,returned
+O-1005,2026-10-01T13:10:00,VLC-007,carmen.ruiz@example.com,SKU-AGUA-6X1.5L,alimentacion,2,2.70,cancelled
+,2026-10-01T14:00:00,VLC-007,sin.pedido@example.com,SKU-FRUTA-KG,alimentacion_basica,1,1.99,completed
+O-1006,2026-10-01T15:20:00,VLC-007,pablo.martin@example.com,SKU-CAFE-250G,alimentacion,-2,3.75,completed
+O-1007,2026-10-01T18:40:00,MAD-001,elena.diaz@example.com,SKU-CERV-6PK,bebidas,1,abc,completed

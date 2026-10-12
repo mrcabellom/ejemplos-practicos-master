@@ -1,0 +1,13 @@
+---
+description: Reglas generales del proyecto brisa-bookings
+alwaysApply: true
+---
+
+Las instrucciones generales están en `AGENTS.md`, que Cursor también lee.
+Esta regla solo añade lo específico de Cursor.
+
+- Para consultar el almacén usa el servidor MCP `bookings-warehouse`, de
+  solo lectura. No uses `sqlite3` por terminal.
+- `data/raw/` y `data/reference/` son inmutables. En esta configuración no
+  hay un hook que bloquee su edición: la protección queda en esta regla y en
+  la revisión del diff. El hook instalado solo bloquea SQL destructivo.

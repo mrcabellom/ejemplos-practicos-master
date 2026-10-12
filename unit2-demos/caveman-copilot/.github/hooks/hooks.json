@@ -1,0 +1,21 @@
+{
+  "version": 1,
+  "hooks": {
+    "sessionStart": [
+      {
+        "type": "command",
+        "bash": "echo 'UGA BUGA: caveman session start' >> caveman-log.txt",
+        "powershell": "Add-Content caveman-log.txt 'UGA BUGA: caveman session start'",
+        "timeoutSec": 10
+      }
+    ],
+    "userPromptSubmitted": [
+      {
+        "type": "command",
+        "bash": "echo \"ROCK: human talk, caveman listen ($(date +%T))\" >> caveman-log.txt",
+        "powershell": "Add-Content caveman-log.txt \"ROCK: human talk, caveman listen ($(Get-Date -Format HH:mm:ss))\"",
+        "timeoutSec": 10
+      }
+    ]
+  }
+}

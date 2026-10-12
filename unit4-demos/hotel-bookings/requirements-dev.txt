@@ -1,0 +1,7 @@
+# The project itself needs no third-party packages: standard library only.
+# These are optional developer tools.
+#
+#   python -m pip install -r requirements-dev.txt
+#
+# pytest is not required: `python tasks.py test` falls back to unittest.
+pytest>=8.0

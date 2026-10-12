@@ -1,0 +1,15 @@
+.venv/
+__pycache__/
+.pytest_cache/
+
+# Repositorios y copias que crean las demos
+_repo/
+_broken/
+_fixed/
+
+# Todo lo que cree el asistente en la demo 02 (solo se conserva data/ y output/.gitkeep)
+02-refine-task/workspace/*
+!02-refine-task/workspace/data/
+!02-refine-task/workspace/output/
+02-refine-task/workspace/output/*
+!02-refine-task/workspace/output/.gitkeep

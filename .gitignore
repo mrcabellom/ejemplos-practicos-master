@@ -1,0 +1,10 @@
+# Common to every example (each example also has its own .gitignore)
+.venv/
+venv/
+__pycache__/
+*.pyc
+.pytest_cache/
+.env
+node_modules/
+.DS_Store
+Thumbs.db

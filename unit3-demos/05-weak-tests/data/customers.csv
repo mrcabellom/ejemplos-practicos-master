@@ -1,0 +1,6 @@
+customer_id,name,email
+1,Ana García,Ana@Mail.com
+2,Ana García,"ana@mail.com "
+3,Luis Pérez,luis@mail.com
+4,Luis Pérez," LUIS@MAIL.COM"
+5,Marta Ruiz,marta@mail.com

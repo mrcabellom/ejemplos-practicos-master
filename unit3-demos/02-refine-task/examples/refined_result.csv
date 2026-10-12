@@ -1,0 +1,9 @@
+sale_id,customer,region,sale_date,amount
+1,Ana García,norte,2026-09-15,120.50
+2,Luis Pérez ,Sur,2026-10-08,80.00
+3,Luis Pérez ,Sur,2026-10-08,80.00
+4,marta ruiz,Este,2026-10-09,200.00
+5,Jorge Sanz,OESTE,2026-09-10,-45.90
+6,Lucía Mora,Norte,,60.00
+7,Pedro Gil,,2026-10-03,99.99
+8,Elena Vidal,Sur,2026-08-27,15.75

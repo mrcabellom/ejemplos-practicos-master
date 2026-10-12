@@ -1,0 +1,20 @@
+[
+  {
+    "hotel_id": "MLG",
+    "name": "Brisa Málaga Playa",
+    "city": "Málaga",
+    "rooms": 8
+  },
+  {
+    "hotel_id": "MAD",
+    "name": "Brisa Madrid Centro",
+    "city": "Madrid",
+    "rooms": 10
+  },
+  {
+    "hotel_id": "BCN",
+    "name": "Brisa Barcelona Born",
+    "city": "Barcelona",
+    "rooms": 6
+  }
+]

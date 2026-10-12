@@ -1,0 +1,11 @@
+{
+  "version": 1,
+  "hooks": {
+    "beforeShellExecution": [
+      {
+        "command": "python .cursor/hooks/block_destructive_sql.py",
+        "failClosed": true
+      }
+    ]
+  }
+}

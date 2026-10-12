@@ -1,0 +1,7 @@
+# Any change to specs or changes is reviewed by Data Platform
+/openspec/                                   @mercaluz/data-platform
+
+# Contracts consumed by other teams: the consumer must review
+/openspec/specs/daily-sales/                 @mercaluz/data-platform @mercaluz/bi @mercaluz/finanzas
+/openspec/specs/finance-export/              @mercaluz/data-platform @mercaluz/finanzas
+/openspec/specs/pii-protection/              @mercaluz/data-platform @mercaluz/dpo

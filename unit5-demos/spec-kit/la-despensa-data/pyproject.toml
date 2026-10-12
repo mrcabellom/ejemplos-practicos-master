@@ -1,0 +1,13 @@
+[project]
+name = "daily-sales"
+version = "0.1.0"
+description = "La Despensa: daily sales pipeline (Spec Kit example)"
+requires-python = ">=3.10"
+dependencies = ["duckdb>=1.1"]
+
+[dependency-groups]
+dev = ["pytest>=8"]
+
+[tool.pytest.ini_options]
+pythonpath = ["src"]
+testpaths = ["tests"]

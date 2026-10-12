@@ -1,0 +1,12 @@
+---
+description: Reglas del paquete del pipeline
+globs: src/pipeline/**
+alwaysApply: false
+---
+
+- Toda función que escriba en el almacén indica en su docstring qué ocurre
+  si se ejecuta dos veces con la misma entrada.
+- Los códigos de rechazo son parte del contrato: no se inventan nuevos sin
+  actualizar `docs/data-contracts/fct_bookings.md`.
+- La fecha de negocio sale de `updated_at`, nunca del nombre del extracto ni
+  de la hora de carga.
